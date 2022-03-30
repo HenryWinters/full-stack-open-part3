@@ -1,8 +1,17 @@
-DELETE http://localhost:3001/api/persons/4
+DELETE http://localhost:3001/api/persons/3194
 
 ###
 
 POST http://localhost:3001/api/persons/
+Content-Type: application/json 
+
+{
+    "name": "Test Person", 
+    "number": "123"
+}
+
+### 
+POST https://calm-refuge-58064.herokuapp.com/api/persons/
 Content-Type: application/json 
 
 {
