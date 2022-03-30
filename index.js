@@ -4,6 +4,7 @@ const cors = require('cors')
 const app = express() 
 app.use(cors())
 app.use(express.json())
+app.use(express.static('build'))
 morgan.token('post', function (request, response) { return JSON.stringify(request.body) })
 app.use(morgan(function (tokens, req, res) {
     if (tokens.post(req, res) !== '{}') { 
@@ -81,6 +82,12 @@ app.delete('/api/persons/:id', (request, response) => {
 
 const generateID = () => Math.floor(Math.random()* 10000)
 
+app.put('/api/persons/:id', (request,response) => { 
+    const body = request.body
+    persons = persons.map((person) => person.id === body.id ? {...person, number: body.number} : person)
+    response.json(body)
+})
+
 app.post('/api/persons', (request, response) => {
     const body = request.body
 
@@ -102,8 +109,8 @@ app.post('/api/persons', (request, response) => {
     if (persons.find(person => person.number === body.number)) {
         return response.status(400).json({
             error: 'number must be unique'
-        })
-    }
+        }) 
+    } 
 
     const person = {
         id: generateID(),

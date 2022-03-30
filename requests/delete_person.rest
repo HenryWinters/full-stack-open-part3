@@ -1,4 +1,4 @@
-DELETE http://localhost:3001/api/persons/3194
+DELETE http://localhost:3001/api/persons/4
 
 ###
 
@@ -18,3 +18,6 @@ Content-Type: application/json
     "name": "Test Person", 
     "number": "123"
 }
+
+###
+DELETE https://calm-refuge-58064.herokuapp.com/api/persons/3194
