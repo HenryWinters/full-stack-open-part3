@@ -17,12 +17,4 @@ personSchema.set('toJSON', {
     }
 })
 
-/*const Person = mongoose.model('Person', personSchema)
-
-const person = new Person({
-    name: name, 
-    number: number
-})
-*/
-
 module.exports = mongoose.model('Person', personSchema)
