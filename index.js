@@ -82,7 +82,7 @@ app.put('/api/persons/:id', (request,response) => {
         .catch(error => next(error))
 })
 
-app.post('/api/persons', (request, response, next) => {
+app.post('/api/persons', async (request, response, next) => {
     const body = request.body
 
     if (!body.name) {
@@ -95,7 +95,7 @@ app.post('/api/persons', (request, response, next) => {
             error: 'number is missing'
         })
     } 
-    if (Person.find({name: body.name})) {
+    if (await Person.exists({name: body.name})) {
         return response.status(400).json({
             error: 'name must be unique'
         })
