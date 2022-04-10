@@ -20,6 +20,16 @@ GET http://localhost:3001/info
 
 ###
 
+POST http://localhost:3001/api/persons/
+Content-Type: application/json 
+
+{
+    "name": "Te", 
+    "number": "123"
+}
+
+###
+
 POST https://calm-refuge-58064.herokuapp.com/api/persons/
 Content-Type: application/json 
 

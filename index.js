@@ -95,6 +95,11 @@ app.post('/api/persons', (request, response, next) => {
             error: 'number is missing'
         })
     } 
+    if (Person.find({name: body.name})) {
+        return response.status(400).json({
+            error: 'name must be unique'
+        })
+    }
 
     const person = new Person({
         id: generateID(),
