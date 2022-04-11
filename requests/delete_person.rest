@@ -11,25 +11,21 @@ Content-Type: application/json
 }
 
 ###
-
 GET http://localhost:3001/api/persons/6247dfb01916b66cc36d6ad5
 
 ###
-
 GET http://localhost:3001/info
 
 ###
-
 POST http://localhost:3001/api/persons/
 Content-Type: application/json 
 
 {
-    "name": "Te", 
-    "number": "123"
+    "name": "Test Person 7", 
+    "number": "123-456-5433"
 }
 
 ###
-
 POST https://calm-refuge-58064.herokuapp.com/api/persons/
 Content-Type: application/json 
 
